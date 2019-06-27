@@ -23,7 +23,6 @@ const (
 
 type options struct {
 	Size string
-	File string
 }
 
 // NewGoLoremCommand creates a new go-lorem Cobra command with subcommands configured
@@ -51,8 +50,6 @@ func NewGoLoremCommand() *cobra.Command {
 	goLoremCmd.PersistentFlags().StringVarP(&opts.Size, "size", "s", "", "Requested size of the lorem ipsum string "+
 		"(in the form <int>[B|K|M|G] where B, K, M, G represent bytes, kilobytes, megabytes and gigabytes respectively")
 	goLoremCmd.MarkPersistentFlagRequired("size")
-
-	goLoremCmd.PersistentFlags().StringVarP(&opts.File, "file", "f", "", "Optional parameter specifying the file to write to, rather than the default of stdout")
 
 	return goLoremCmd
 }
