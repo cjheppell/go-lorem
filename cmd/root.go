@@ -25,7 +25,7 @@ type options struct {
 	Size string
 }
 
-// NewGoLoremCommand creates a new go-lorem Cobra command with subcommands configured
+// NewGoLoremCommand creates a new go-lorem Cobra command
 func NewGoLoremCommand() *cobra.Command {
 	opts := &options{}
 
