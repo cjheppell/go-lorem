@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"os"
 	"strconv"
 	"strings"
 	"unicode"
@@ -37,12 +38,12 @@ func NewGoLoremCommand() *cobra.Command {
 			if err != nil {
 				return err
 			}
-			lorem, err := lorem.Lorem(size)
+
+			err = lorem.Lorem(size, os.Stdout)
 			if err != nil {
 				return err
 			}
 
-			fmt.Print(string(lorem))
 			return nil
 		},
 	}
