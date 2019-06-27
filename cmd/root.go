@@ -2,10 +2,11 @@ package cmd
 
 import (
 	"fmt"
-	"log"
 	"strconv"
 	"strings"
 	"unicode"
+
+	"github.com/cjheppell/go-lorem/lorem"
 
 	"github.com/spf13/cobra"
 )
@@ -36,7 +37,12 @@ func NewGoLoremCommand() *cobra.Command {
 			if err != nil {
 				return err
 			}
-			log.Printf("Size was: %d", size)
+			lorem, err := lorem.Lorem(size)
+			if err != nil {
+				return err
+			}
+
+			fmt.Print(string(lorem))
 			return nil
 		},
 	}
